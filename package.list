@@ -1,0 +1,35 @@
+yakuake gnome-do vlc
+wget
+vim
+vim-gtk #gvim
+gstreamer1.0-libav gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly  gstreamer1.0-plugins-bad gstreamer1.0-nice # codec stuff
+build-essential g++ libboost-serialization-dev libgtkmm-3.0-dev libxtst-dev libdbus-glib-1-dev intltool xserver-xorg-dev #build dependency easystroke
+keepass2 mono-complete # keepass2 dependency
+flashplugin-nonfree
+chromium
+hibernate
+python-pyexiv2
+cifs-utils
+exfat-utils
+network-manager-gnome #nm-applet
+arandr
+tint2 # panel
+conky # performance graphs
+libnotify-bin # notifications
+dunst # notification gui
+redshift gtk-redshift # turn the display red in the evening
+xscreensaver
+kmix
+owncloud-client
+openbox # desktop environment
+lightdm # desktop manager
+git git-core # git
+clementine # music player
+dolphin # file manager
+speedcrunch # calculator
+vinagre # vnc/rdp viewer
+screen
+unrar
+unzip
+nmap
+rsync
