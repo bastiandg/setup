@@ -5,7 +5,7 @@ BASEDIR="$(dirname "$(readlink -f $0)")"
 
 font_setup () {
 	FONT_NAME="SourceCodePro"
-	URL="http://downloads.sourceforge.net/project/sourcecodepro.adobe/SourceCodePro_FontsOnly-1.017.zip"
+	URL="https://github.com/adobe-fonts/source-code-pro/archive/1.017R.zip"
 
 	mkdir /tmp/adodefont
 	cd /tmp/adodefont
@@ -36,6 +36,9 @@ easystroke_setup () {
 dotfile_setup () {
 	if [ ! -d "$HOME/dotfiles" ] ; then
 		git clone https://github.com/bastiandg/dotfiles.git "$HOME/dotfiles"
+		cd "$HOME/dotfiles"
+		git submodule init
+		git submodule update
 	fi
 	cp -vr "$HOME/dotfiles/.bashrc" "$HOME/.bashrc"
 	rm -v -rf "$HOME/.vim/" "$HOME/.vimrc"
