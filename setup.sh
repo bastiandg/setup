@@ -100,9 +100,9 @@ mozilla_setup () {
 	fi
 }
 
+cd "$BASEDIR"
 sudo aptitude update
 $INSTALL $(cat package.list | sed -e "s/\(.*\)#.*/\1/g" | tr "\\n" " ")
-cd "$BASEDIR"
 
 font_setup
 git_setup
