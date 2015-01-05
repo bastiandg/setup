@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+LOG="install.log"
+exec &> >(tee "$LOG") 2>&1
+
 INSTALL="sudo aptitude install -y"
 BASEDIR="$(dirname "$(readlink -f $0)")"
 
