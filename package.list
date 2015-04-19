@@ -33,3 +33,7 @@ unrar
 unzip
 nmap
 rsync
+okular
+grc # bash coloring
+ark # nice archiving tool
+htop
