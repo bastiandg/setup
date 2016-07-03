@@ -2,7 +2,7 @@
 
 sudo aptitude update
 
-sudo aptitude install build-essential g++ libboost-serialization-dev libgtkmm-3.0-dev libxtst-dev libdbus-glib-1-dev intltool xserver-xorg-dev #build dependency easystroke
+sudo aptitude install -y build-essential g++ libboost-serialization-dev libgtkmm-3.0-dev libxtst-dev libdbus-glib-1-dev intltool xserver-xorg-dev #build dependency easystroke
 mkdir /tmp/easystroke
 git clone https://github.com/thjaeger/easystroke.git /tmp/easystroke
 cd /tmp/easystroke
