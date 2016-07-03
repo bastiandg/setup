@@ -3,7 +3,6 @@ wget
 vim
 vim-gtk #gvim
 gstreamer1.0-libav gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly  gstreamer1.0-plugins-bad gstreamer1.0-nice # codec stuff
-build-essential g++ libboost-serialization-dev libgtkmm-3.0-dev libxtst-dev libdbus-glib-1-dev intltool xserver-xorg-dev #build dependency easystroke
 keepass2 mono-complete # keepass2 dependency
 flashplugin-nonfree
 chromium
