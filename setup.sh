@@ -32,14 +32,16 @@ dotfile_setup () {
 		git submodule init
 		git submodule update
 	fi
-	cp -vr "$HOME/dotfiles/.bashrc" "$HOME/.bashrc"
+	cp -v "$HOME/dotfiles/.bashrc" "$HOME/.bashrc"
 	rm -v -rf "$HOME/.vim/" "$HOME/.vimrc"
-	cp -vr "$HOME/dotfiles/.vimrc" "$HOME/.vimrc"
+	cp -v "$HOME/dotfiles/.vimrc" "$HOME/.vimrc"
 	cp -vr "$HOME/dotfiles/.vim" "$HOME/.vim"
-	cp -vr "$HOME/dotfiles/.conkyrc" "$HOME/.conkyrc"
+	cp -v "$HOME/dotfiles/.conkyrc" "$HOME/.conkyrc"
 	mkdir -p "$HOME/.config"
 	cp -vr "$HOME/dotfiles/openbox" "$HOME/.config/"
 	cp -vr "$HOME/dotfiles/tint2" "$HOME/.config/"
+	mkdir -p "$HOME/.kde/share/config/"
+	cp -v "$HOME/dotfiles/yakuakerc" "$HOME/.kde/share/config/"
 }
 
 cd "$BASEDIR"

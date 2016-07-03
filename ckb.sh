@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-CKBDIR="~/ckb"
+CKBDIR="$HOME/ckb"
 
 sudo aptitude update
 sudo aptitude install -y build-essential libudev-dev qt5-default zlib1g-dev libappindicator-dev

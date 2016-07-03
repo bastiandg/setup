@@ -7,7 +7,7 @@ mkdir "/tmp/adodefont"
 cd "/tmp/adodefont"
 wget "${URL}" -O "${FONT_NAME}.zip"
 unzip -o -j "${FONT_NAME}.zip"
-mkdir -p "~/.fonts"
-cp *.otf "~/.fonts"
+mkdir -p "$HOME/.fonts"
+cp *.otf "$HOME/.fonts"
 fc-cache -f -v
 
