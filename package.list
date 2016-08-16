@@ -4,9 +4,7 @@ vim
 vim-gtk #gvim
 gstreamer1.0-libav gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly  gstreamer1.0-plugins-bad gstreamer1.0-nice # codec stuff
 keepass2 mono-complete # keepass2 dependency
-flashplugin-nonfree
 chromium
-hibernate
 python-pyexiv2
 cifs-utils
 exfat-utils

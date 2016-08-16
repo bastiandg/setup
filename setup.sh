@@ -52,5 +52,4 @@ font_setup
 git_setup
 easystroke_setup
 dotfile_setup
-sudo update-alternatives --set x-session-manager /usr/bin/openbox-session
 
