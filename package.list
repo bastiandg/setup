@@ -34,3 +34,5 @@ okular
 grc # bash coloring
 ark # nice archiving tool
 htop
+libvdpau-va-gl1 libvdpau1 mesa-vdpau-drivers i965-va-driver mpv
+fancontrol lm-sensors
