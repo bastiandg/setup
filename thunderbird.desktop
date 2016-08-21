@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=Thunderbird
+GenericName=Thunderbird
+Comment=Thunderbird
+Name[de]=Thunderbird
+GenericName[de]=Mail-Client
+Comment[de]=Thunderbird
+Exec=/usr/bin/thunderbird
+TryExec=/usr/bin/thunderbird
+Icon=/opt/thunderbird/chrome/icons/default/default256.png
+Terminal=false
+Type=Application

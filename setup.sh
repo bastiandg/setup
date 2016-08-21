@@ -18,6 +18,10 @@ easystroke_setup () {
 	"$BASEDIR/easystroke.sh"
 }
 
+thunderbird_setup () {
+	"$BASEDIR/thunderbird.sh"
+}
+
 git_setup () {
 	git config --global user.name "Bastian de Groot"
 	git config --global user.email "git@de-groot.info"
@@ -52,4 +56,5 @@ font_setup
 git_setup
 easystroke_setup
 dotfile_setup
+thunderbird_setup
 
