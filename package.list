@@ -37,3 +37,4 @@ htop
 libvdpau-va-gl1 libvdpau1 mesa-vdpau-drivers i965-va-driver mpv
 fancontrol lm-sensors
 qdbus-qt5 # needed for locking the screen on the commandline
+xdotool # tool for simulating key presses
