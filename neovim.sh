@@ -32,3 +32,8 @@ if [ "$?" != "0" ] ; then
 	echo 'alias vi="nvim"' >> "$HOME/.bashrc.local"
 fi
 
+if [ ! -e "$HOME/.config/nvim/" ] ; then
+	cp -r "$HOME/.vim" "$HOME/.config/nvim"
+	cp "$HOME/.vimrc" "$HOME/.config/nvim/init.vim"
+fi
+
