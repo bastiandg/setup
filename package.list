@@ -30,6 +30,8 @@ qdbus-qt5 # needed for locking the screen on the commandline
 xdotool # tool for simulating key presses
 flake8
 shellcheck
+jq
+curl
 # dunst # notification gui
 # libnotify-bin # notifications
 # conky # performance graphs

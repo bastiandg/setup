@@ -2,7 +2,7 @@
 
 INSTALLDIR="/opt/"
 PUID="1000" #user who "owns" the software
-BASEDIR="$(dirname "$(readlink -f $0)")"
+BASEDIR="$(dirname "$(readlink -f "$0")")"
 
 if [ ! -d "$INSTALLDIR/thunderbird" ] ; then
 	DOWNLOADURL="https://download.mozilla.org/?product=thunderbird-latest&os=linux64&lang=de"

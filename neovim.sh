@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+BASEDIR="$(dirname "$(readlink -f "$0")")"
 GITDIR="$(mktemp -d)"
 GITURL="https://github.com/neovim/neovim.git"
 
@@ -7,6 +8,7 @@ GITURL="https://github.com/neovim/neovim.git"
 # setup exit handler
 #################################################################################
 onexit() {
+	cd "$BASEDIR"
 	echo "Script is terminating -- cleaning up"
 	rm -rf "$GITDIR"
 	exit

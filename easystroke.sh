@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-TMPDIR="/tmp/easystroke"
+BASEDIR="$(dirname "$(readlink -f "$0")")"
+TMPDIR="$(mktemp -d)"
 sudo aptitude update
 
 sudo aptitude install -y build-essential g++ libboost-serialization-dev libgtkmm-3.0-dev libxtst-dev libdbus-glib-1-dev intltool xserver-xorg-dev #build dependency easystroke
