@@ -4,7 +4,7 @@ LOG="install.log"
 exec &> >(tee "$LOG") 2>&1
 
 INSTALL="sudo aptitude install -y"
-BASEDIR="$(dirname "$(readlink -f $0)")"
+BASEDIR="$(dirname "$(readlink -f "$0")")"
 
 font_setup () {
 	"$BASEDIR/font.sh"
@@ -31,10 +31,8 @@ git_setup () {
 
 dotfile_setup () {
 	if [ ! -d "$HOME/dotfiles" ] ; then
-		git clone https://github.com/bastiandg/dotfiles.git "$HOME/dotfiles"
+		git clone --recursive -j8 https://github.com/bastiandg/dotfiles.git "$HOME/dotfiles"
 		cd "$HOME/dotfiles"
-		git submodule init
-		git submodule update
 	fi
 	cp -v "$HOME/dotfiles/.bashrc" "$HOME/.bashrc"
 	rm -v -rf "$HOME/.vim/" "$HOME/.vimrc"
@@ -50,7 +48,7 @@ dotfile_setup () {
 
 cd "$BASEDIR"
 sudo aptitude update
-$INSTALL $(cat package.list | sed -e "s/\(.*\)#.*/\1/g" | tr "\\n" " ")
+$INSTALL $(grep -v "^#" package.list | sed -e "s/\(.*\)#.*/\1/g" | tr "\\n" " ")
 
 font_setup
 git_setup
