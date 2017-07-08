@@ -1,25 +1,15 @@
 yakuake gnome-do vlc
 wget
 vim
-vim-gtk #gvim
 gstreamer1.0-libav gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly  gstreamer1.0-plugins-bad gstreamer1.0-nice # codec stuff
 keepass2 mono-complete # keepass2 dependency
 chromium
 python-pyexiv2
 cifs-utils
 exfat-utils
-network-manager-gnome #nm-applet
-arandr
-tint2 # panel
-conky # performance graphs
-libnotify-bin # notifications
-dunst # notification gui
 redshift gtk-redshift # turn the display red in the evening
-xscreensaver
 kmix
 owncloud-client
-openbox # desktop environment
-lightdm # desktop manager
 git git-core # git
 clementine # music player
 dolphin # file manager
@@ -38,3 +28,14 @@ libvdpau-va-gl1 libvdpau1 mesa-vdpau-drivers i965-va-driver mpv
 fancontrol lm-sensors
 qdbus-qt5 # needed for locking the screen on the commandline
 xdotool # tool for simulating key presses
+flake8
+shellcheck
+# dunst # notification gui
+# libnotify-bin # notifications
+# conky # performance graphs
+# openbox # desktop environment
+# lightdm # desktop manager
+# arandr
+# vim-gtk #gvim
+# xscreensaver
+# network-manager-gnome #nm-applet
