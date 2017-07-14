@@ -16,5 +16,5 @@ if [ ! -d "$INSTALLDIR/thunderbird" ] ; then
 	sudo ln -s "$INSTALLDIR/thunderbird/thunderbird" /usr/bin/thunderbird
 	cd "$BASEDIR"
 	rm -rf /tmp/thunderbird
-	sudo cp thunderbird.desktop "/usr/share/applications/thunderbird.desktop"
+	sudo cp "$BASEDIR/../files/thunderbird.desktop" "/usr/share/applications/thunderbird.desktop"
 fi

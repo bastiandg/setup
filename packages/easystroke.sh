@@ -6,9 +6,13 @@ sudo aptitude update
 
 sudo aptitude install -y build-essential g++ libboost-serialization-dev libgtkmm-3.0-dev libxtst-dev libdbus-glib-1-dev intltool xserver-xorg-dev #build dependency easystroke
 git clone https://github.com/thjaeger/easystroke.git "$TMPDIR"
-cp lambda.patch "$TMPDIR"
-cd "$TMPDIR"
-patch < lambda.patch
+if lsb_release -c | grep jessie ; then
+	cd "$TMPDIR"
+else
+	cp "$BASEDIR/../files/lambda.patch" "$TMPDIR"
+	cd "$TMPDIR"
+	patch < lambda.patch
+fi
 make -j4
 sudo make install
 cd "$BASEDIR"
