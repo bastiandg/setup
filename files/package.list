@@ -32,6 +32,7 @@ flake8
 shellcheck
 jq
 curl
+python3-numpy
 # dunst # notification gui
 # libnotify-bin # notifications
 # conky # performance graphs
