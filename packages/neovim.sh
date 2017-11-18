@@ -10,7 +10,7 @@ URL="$(curl -s "https://api.github.com/repos/neovim/neovim/releases/latest" | jq
 onexit() {
 	cd "$BASEDIR"
 	echo "Script is terminating -- cleaning up"
-	rm -rf "$TMPDIR"
+	sudo rm -rf "$TMPDIR"
 	exit
 }
 

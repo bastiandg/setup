@@ -1,0 +1,14 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Name=Firefox
+GenericName=Firefox
+Comment=Firefox
+Name[de]=Firefox
+GenericName[de]=Browser
+Comment[de]=Firefox
+Exec=/usr/bin/firefox
+TryExec=/usr/bin/firefox
+Icon=/opt/firefox/browser/icons/mozicon128.png
+Terminal=false
+Type=Application
