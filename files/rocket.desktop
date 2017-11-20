@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Name=Rocket.chat
+Comment=Rocket Profile for firefox
+Exec=firefox -P Rocket
+Icon=/usr/share/icons/rocket.svg
+Categories=Settings;System;
