@@ -2,7 +2,6 @@
 
 BASEDIR="$(dirname "$(readlink -f "$0")")"
 TMPDIR="$(mktemp -d)"
-URL="$(curl -s "https://api.github.com/repos/neovim/neovim/releases/latest" | jq -r ".zipball_url")"
 
 #################################################################################
 # setup exit handler
@@ -17,8 +16,10 @@ onexit() {
 trap onexit EXIT
 trap '' INT TERM # Ignore SigINT and SigTERM
 
-sudo aptitude update
-sudo aptitude install -y libtool libtool-bin autoconf automake cmake g++ pkg-config unzip python3-pip
+sudo apt update
+sudo apt install -y jq curl libtool libtool-bin autoconf automake cmake g++ pkg-config unzip python3-pip
+
+URL="$(curl -s "https://api.github.com/repos/neovim/neovim/releases/latest" | jq -r ".zipball_url")"
 
 cd "$TMPDIR"
 curl -L -o neovim.zip "$URL"
