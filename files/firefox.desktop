@@ -9,6 +9,6 @@ GenericName[de]=Browser
 Comment[de]=Firefox
 Exec=/usr/bin/firefox
 TryExec=/usr/bin/firefox
-Icon=/opt/firefox/browser/icons/mozicon128.png
+Icon=/opt/firefox/browser/chrome/icons/default/default128.png
 Terminal=false
 Type=Application
