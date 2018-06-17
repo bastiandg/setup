@@ -1,0 +1,4 @@
+[MainWindow]
+ToolBarsMovable=Disabled
+Window-Maximized 1080x1920=true
+Window-Maximized 768x1366=true
