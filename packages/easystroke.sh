@@ -2,10 +2,11 @@
 
 BASEDIR="$(dirname "$(readlink -f "$0")")"
 TMPDIR="$(mktemp -d)"
+URL="https://github.com/thjaeger/easystroke.git"
 sudo aptitude update
 
 sudo aptitude install -y build-essential g++ libboost-serialization-dev libgtkmm-3.0-dev libxtst-dev libdbus-glib-1-dev intltool xserver-xorg-dev #build dependency easystroke
-git clone https://github.com/thjaeger/easystroke.git "$TMPDIR"
+git clone "$URL" "$TMPDIR"
 if lsb_release -c | grep jessie ; then
 	cd "$TMPDIR"
 else
