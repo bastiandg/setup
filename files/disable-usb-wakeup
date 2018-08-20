@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -e
+USBDEVICES='XHCI|EHC1|EHC2|IGBE|USB0'
+
+if [ "$(whoami)" != "root" ] ; then
+	echo "You have to be root to run this" >&2
+	exit 1
+fi
+
+IFS=$'\n'
+for device_line in $(grep -E "($USBDEVICES).*enabled" /proc/acpi/wakeup) ; do
+	device="$(echo "$device_line" | awk '{print $1}')"
+	echo "$device" > /proc/acpi/wakeup
+done
