@@ -14,4 +14,5 @@ BASEDIR="$(dirname "$(readlink -f "$0")")"
 "$BASEDIR/packages/gitconfig.sh"
 "$BASEDIR/packages/neovim.sh"
 "$BASEDIR/packages/thunderbird.sh"
+"$BASEDIR/packages/disable-usb-wakeup.sh"
 
