@@ -1,0 +1,10 @@
+[Unit]
+Description=Disable USB suspend wakeup
+
+[Service]
+User=root
+Type=oneshot
+ExecStart=/usr/local/bin/disable-usb-wakeup
+
+[Install]
+WantedBy=multi-user.target
