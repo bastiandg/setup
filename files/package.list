@@ -9,7 +9,6 @@ cifs-utils
 exfat-utils
 redshift gtk-redshift # turn the display red in the evening
 kmix
-owncloud-client
 git git-core # git
 clementine # music player
 dolphin # file manager
@@ -33,6 +32,7 @@ shellcheck
 jq
 curl
 python3-numpy
+xclip
 # dunst # notification gui
 # libnotify-bin # notifications
 # conky # performance graphs
