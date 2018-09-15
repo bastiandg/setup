@@ -3,6 +3,8 @@
 BASEDIR="$(dirname "$(readlink -f "$0")")"
 TMPDIR="$(mktemp -d)"
 
+set -eu -o pipefail
+
 #################################################################################
 # setup exit handler
 #################################################################################
@@ -26,11 +28,13 @@ curl -L -o neovim.zip "$URL"
 unzip -o neovim.zip
 cd neovim-neovim*
 export LC_ALL=C
-make -j4 CMAKE_BUILD_TYPE=Release
+make -j"$(nproc --all)" CMAKE_BUILD_TYPE=Release
 sudo make install
 pip3 install --upgrade neovim
 
+set +e
 grep 'alias vim="nvim"' "$HOME/.bashrc.local" &> /dev/null
+set -e
 
 if [ "$?" != "0" ] ; then
 	echo 'alias vim="nvim -u ~/.vimrc"' >> "$HOME/.bashrc.local"
