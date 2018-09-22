@@ -33,6 +33,7 @@ jq
 curl
 python3-numpy
 xclip
+silversearcher-ag
 # dunst # notification gui
 # libnotify-bin # notifications
 # conky # performance graphs
