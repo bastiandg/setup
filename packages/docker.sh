@@ -1,6 +1,21 @@
 #!/usr/bin/env bash
 
-set -eu -o pipefail
+set -e -o pipefail
+
+versioncheck () {
+	APT_SOURCE_LINE="$(grep "^deb.*docker" /etc/apt/sources.list || true)"
+	if [ -z "$APT_SOURCE_LINE" ] ; then
+		echo "docker apt repo is already configured, unattended upgrades should take of updates."
+		exit 0
+	fi
+}
+
+versioncheck
+if [ -n "$USER" ] ; then
+	DOCKERUSER="$USER"
+else
+	DOCKERUSER="$1"
+fi
 
 sudo apt-get update
 sudo apt-get -y install \
@@ -21,4 +36,8 @@ sudo apt-get install -y docker-ce || true
 
 if ! sudo systemctl --no-pager status docker.service > /dev/null ; then
     sudo systemctl start docker.service
+fi
+
+if [ -n "$DOCKERUSER" ]; then
+	sudo usermod -aG docker "$DOCKERUSER"
 fi
