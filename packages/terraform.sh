@@ -4,7 +4,7 @@ set -eu -o pipefail
 BASEDIR="$(dirname "$(readlink -f "$0")")"
 RELEASE_URL="https://releases.hashicorp.com/terraform/"
 RELEASE_PAGE="$(curl -s "$RELEASE_URL")"
-VERSION="$(echo "$RELEASE_PAGE" | grep -v 'rc\|beta' | grep -m 1 'href="/terraform' | sed -re "s#.*terraform_([0-9.]*)</a>#\1#")"
+VERSION="$(echo "$RELEASE_PAGE" | grep -v 'rc\|beta\|alpha' | grep -m 1 'href="/terraform' | sed -re "s#.*terraform_([0-9.]*)</a>#\1#")"
 
 versioncheck () {
 	set +eu
