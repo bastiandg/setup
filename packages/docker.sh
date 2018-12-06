@@ -4,7 +4,7 @@ set -e -o pipefail
 
 versioncheck () {
 	APT_SOURCE_LINE="$(grep "^deb.*docker" /etc/apt/sources.list || true)"
-	if [ -z "$APT_SOURCE_LINE" ] ; then
+	if [ -n "$APT_SOURCE_LINE" ] ; then
 		echo "docker apt repo is already configured, unattended upgrades should take of updates."
 		exit 0
 	fi
