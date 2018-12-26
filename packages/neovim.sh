@@ -9,10 +9,12 @@ versioncheck () {
 	set +eu
 	localversion="$(nvim --version 2> /dev/null | grep -oP '(?<=NVIM ).*(?=$)')"
 	set -eu
-	remoteversion="$(curl -s "$RELEASE_URL" | jq -r ".tag_name")"
-	if [ "$localversion" = "$remoteversion" ] ; then
-		echo "nvim is up to date"
+	remoteversion="$(curl -s "$RELEASE_URL" | jq -r ".name"| grep -oP '(?<=NVIM ).*(?=$)')"
+	if [ "$localversion" = "v$remoteversion" ] ; then
+		echo "neovim is up to date (version $localversion)"
 		exit 0
+	else
+		echo "updating neovim from $localversion to $remoteversion"
 	fi
 }
 versioncheck
