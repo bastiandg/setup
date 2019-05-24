@@ -5,7 +5,8 @@ set -eu -o pipefail
 INSTALLDIR="/opt/firefox"
 PUID="1000" #user who "owns" the software
 BASEDIR="$(dirname "$(readlink -f "$0")")"
-DOWNLOADURL="https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=de"
+LANGUAGE="de" # Language code (examples nl, en-US, en-CA)
+DOWNLOADURL="https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=${LANGUAGE}"
 
 versioncheck () {
 	set +eu
