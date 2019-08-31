@@ -34,8 +34,8 @@ onexit() {
 trap onexit EXIT
 trap '' INT TERM # Ignore SigINT and SigTERM
 
-sudo apt update
-sudo apt install -y jq curl libtool libtool-bin autoconf automake cmake g++ pkg-config unzip python3-pip
+sudo apt-get update -y
+sudo apt-get install -y jq curl libtool libtool-bin autoconf automake cmake g++ pkg-config unzip python3-pip
 
 TMPDIR="$(mktemp -d)"
 URL="$(curl -s "$RELEASE_URL" | jq -r ".zipball_url")"

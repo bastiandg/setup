@@ -5,9 +5,9 @@ FONT_NAME="emojione"
 URL="$(curl "https://api.github.com/repos/eosrei/emojione-color-font/releases/latest" 2> /dev/null | jq -r '.assets[] | select(.browser_download_url | contains ("Linux")) | .browser_download_url')"
 TMPDIR="$(mktemp -d)"
 
-sudo aptitude update
+sudo apt-get update
 
-sudo aptitude install -y ttf-bitstream-vera
+sudo apt-get install -y ttf-bitstream-vera
 
 cd "$TMPDIR"
 curl -L -o "${FONT_NAME}.tar.gz" "${URL}"

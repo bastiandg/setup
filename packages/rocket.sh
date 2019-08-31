@@ -20,7 +20,7 @@ TMPDIR="$(mktemp -d)"
 cd "$TMPDIR"
 curl -L -o "rocket.deb" "${URL}"
 
-sudo aptitude remove -y rocketchat-desktop
+sudo apt-get remove -y rocketchat-desktop
 sudo dpkg -i "rocket.deb"
 
 cd "$BASEDIR"

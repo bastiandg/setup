@@ -2,7 +2,9 @@
 set -eu -o pipefail
 
 BASEDIR="$(dirname "$(readlink -f "$0")")"
-URL="$(curl "https://api.github.com/repos/VSCodium/vscodium/releases/latest" 2> /dev/null | jq -r '.assets[] | select(.browser_download_url | contains ("amd64.deb")) | .browser_download_url')"
+URL="$(curl "https://api.github.com/repos/VSCodium/vscodium/releases/latest" 2> /dev/null | jq -r '.assets[] | select(.browser_download_url | endswith("amd64.deb")) | .browser_download_url')"
+
+echo "$URL"
 
 versioncheck () {
 	localversion="$( (vscodium --version | head -1) || true)"

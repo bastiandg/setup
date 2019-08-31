@@ -9,9 +9,9 @@ if which easystroke &> /dev/null ; then
 	echo "easystroke is already installed"
 	exit 0
 fi
-sudo apt update
+sudo apt-get update
 
-sudo apt install -y build-essential g++ libboost-serialization-dev libgtkmm-3.0-dev libxtst-dev libdbus-glib-1-dev intltool xserver-xorg-dev #build dependency easystroke
+sudo apt-get install -y build-essential g++ libboost-serialization-dev libgtkmm-3.0-dev libxtst-dev libdbus-glib-1-dev intltool xserver-xorg-dev #build dependency easystroke
 git clone "$URL" "$TMPDIR"
 cp "$BASEDIR/../files/lambda.patch" "$TMPDIR"
 cp "$BASEDIR/../files/abs.patch" "$TMPDIR"

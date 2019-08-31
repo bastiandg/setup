@@ -21,7 +21,7 @@ versioncheck () {
 
 versioncheck
 if [ -n "$(dpkg-query -W -f='${Status}' firefox-esr | grep "\<installed\>" || true)" ] ; then
-	sudo apt remove -y firefox-esr
+	sudo apt-get remove -y firefox-esr
 fi
 
 if [ -d "$INSTALLDIR" ] ; then
