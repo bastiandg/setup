@@ -7,7 +7,7 @@ URL="$(curl "https://api.github.com/repos/VSCodium/vscodium/releases/latest" 2> 
 echo "$URL"
 
 versioncheck () {
-	localversion="$( (vscodium --version | head -1) || true)"
+	localversion="$( (codium --version | head -1) || true)"
 	remoteversion="$(curl "https://api.github.com/repos/VSCodium/vscodium/releases/latest" 2> /dev/null | jq -r ".name")"
 	if [ "$localversion" = "$remoteversion" ] ; then
 		echo "vscodium is up to date ($localversion)"
