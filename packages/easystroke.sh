@@ -7,7 +7,7 @@ TMPDIR="$(mktemp -d)"
 URL="https://github.com/thjaeger/easystroke.git"
 if which easystroke &> /dev/null ; then
 	echo "easystroke is already installed"
-	exit 0
+	#exit 0
 fi
 sudo apt-get update
 
