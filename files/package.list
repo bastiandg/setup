@@ -1,6 +1,5 @@
 yakuake
 wget
-vim
 gstreamer1.0-libav gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly  gstreamer1.0-plugins-bad gstreamer1.0-nice # codec stuff
 keepass2 mono-complete # keepass2 dependency
 cifs-utils
@@ -10,13 +9,11 @@ kmix
 git git-core # git
 dolphin # file manager
 speedcrunch # calculator
-vinagre # vnc/rdp viewer
 screen
 unzip
 nmap
 rsync
 okular
-grc # bash coloring
 ark # nice archiving tool
 htop
 libvdpau-va-gl1 libvdpau1 mesa-vdpau-drivers i965-va-driver mpv
@@ -29,13 +26,5 @@ jq
 curl
 python3-numpy
 xclip
-silversearcher-ag
-# dunst # notification gui
-# libnotify-bin # notifications
-# conky # performance graphs
-# openbox # desktop environment
-# lightdm # desktop manager
-# arandr
-# vim-gtk #gvim
-# xscreensaver
-# network-manager-gnome #nm-applet
+ripgrep
+flameshot
