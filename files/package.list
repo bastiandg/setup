@@ -28,3 +28,4 @@ python3-numpy
 xclip
 ripgrep
 flameshot
+fd-find
