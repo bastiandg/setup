@@ -5,17 +5,17 @@ set -eu -o pipefail
 BASEDIR="$(dirname "$(readlink -f "$0")")"
 RELEASE_URL="https://api.github.com/repos/neovim/neovim/releases/latest"
 
-versioncheck () {
-	set +eu
-	localversion="$(nvim --version 2> /dev/null | grep -oP '(?<=NVIM ).*(?=$)')"
-	set -eu
-	remoteversion="$(curl -s "$RELEASE_URL" | jq -r ".name"| grep -oP '(?<=NVIM ).*(?=$)')"
-	if [ "$localversion" = "v$remoteversion" ] ; then
-		echo "neovim is up to date (version $localversion)"
-		exit 0
-	else
-		echo "updating neovim from $localversion to $remoteversion"
-	fi
+versioncheck() {
+  set +eu
+  localversion="$(nvim --version 2>/dev/null | grep -oP '(?<=NVIM ).*(?=$)')"
+  set -eu
+  remoteversion="$(curl -s "$RELEASE_URL" | jq -r ".name" | grep -oP '(?<=NVIM ).*(?=$)')"
+  if [ "$localversion" = "v$remoteversion" ]; then
+    echo "neovim is up to date (version $localversion)"
+    exit 0
+  else
+    echo "updating neovim from $localversion to $remoteversion"
+  fi
 }
 versioncheck
 
@@ -23,12 +23,12 @@ versioncheck
 # setup exit handler
 #################################################################################
 onexit() {
-	cd "$BASEDIR"
-	echo "Script is terminating -- cleaning up"
-	if [ -d "$TMPDIR" ] ; then
-		sudo rm -rf "$TMPDIR"
-	fi
-	exit
+  cd "$BASEDIR"
+  echo "Script is terminating -- cleaning up"
+  if [[ -d "${TMPDIR:-}" ]]; then
+    sudo rm -rf "$TMPDIR"
+  fi
+  exit
 }
 
 trap onexit EXIT
@@ -49,7 +49,7 @@ make -j"$(nproc --all)" CMAKE_BUILD_TYPE=Release
 sudo make install
 pip3 install --upgrade neovim
 
-if [ ! -e "$HOME/.config/nvim/" ] ; then
-	cp -r "$HOME/.vim" "$HOME/.config/nvim"
-	cp "$HOME/.vimrc" "$HOME/.config/nvim/init.vim"
+if [ ! -e "$HOME/.config/nvim/" ]; then
+  cp -r "$HOME/.vim" "$HOME/.config/nvim"
+  cp "$HOME/.vimrc" "$HOME/.config/nvim/init.vim"
 fi
