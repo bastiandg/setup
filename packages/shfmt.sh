@@ -7,7 +7,7 @@ download_url="$(jq -r '.assets[] | select(.browser_download_url | contains("linu
 
 versioncheck () {
 	localversion="$( shfmt --version 2> /dev/null || true)"
-	remoteversion="$(jq -r ".name" <<< "$response")"
+	remoteversion="$(jq -r ".tag_name" <<< "$response")"
 	if [ "$localversion" = "$remoteversion" ] ; then
 		echo "shfmt is up to date ($localversion)"
 		exit 0
