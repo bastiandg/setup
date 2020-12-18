@@ -22,6 +22,7 @@ cd "$TMPDIR"
 curl -sSLf -o "nextcloud" "${download_url}"
 chmod +x "nextcloud"
 
+sudo mkdir -p "$(dirname "$INSTALL_PATH")"
 sudo mv "nextcloud" "$INSTALL_PATH"
 sudo ln -sf "$INSTALL_PATH" "/usr/bin/nextcloud"
 
