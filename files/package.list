@@ -29,3 +29,5 @@ xclip
 ripgrep
 flameshot
 fd-find
+bat
+network-manager-openvpn
