@@ -8,24 +8,24 @@ BASEDIR="$(dirname "$(readlink -f "$0")")"
 LANGUAGE="de" # Language code (examples nl, en-US, en-CA)
 DOWNLOADURL="https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=${LANGUAGE}"
 
-versioncheck () {
-	set +eu
-	localversion="$(firefox --version 2> /dev/null | grep -oP '(?<=Mozilla Firefox ).*(?=$)')"
-	set -eu
-	remoteversion="$(curl -s "$DOWNLOADURL" | grep -oP '(?<=releases/).*(?=.linux-x86_64)')"
-	if [ "$localversion" = "$remoteversion" ] ; then
-		echo "firefox is up to date"
-		exit 0
-	fi
+versioncheck() {
+  set +eu
+  localversion="$(firefox --version 2>/dev/null | grep -oP '(?<=Mozilla Firefox ).*(?=$)')"
+  set -eu
+  remoteversion="$(curl -s "$DOWNLOADURL" | grep -oP '(?<=releases/).*(?=.linux-x86_64)')"
+  if [ "$localversion" = "$remoteversion" ]; then
+    echo "firefox is up to date"
+    exit 0
+  fi
 }
 
 versioncheck
-if [ -n "$(dpkg-query -W -f='${Status}' firefox-esr | grep "\<installed\>" || true)" ] ; then
-	sudo apt-get remove -y firefox-esr
+if [ -n "$(dpkg-query -W -f='${Status}' firefox-esr | grep "\<installed\>" || true)" ]; then
+  sudo apt-get remove -y firefox-esr
 fi
 
-if [ -d "$INSTALLDIR" ] ; then
-	sudo rm -r "$INSTALLDIR"
+if [ -d "$INSTALLDIR" ]; then
+  sudo rm -r "$INSTALLDIR"
 fi
 TMPDIR="$(mktemp -d)"
 cd "$TMPDIR"

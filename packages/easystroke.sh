@@ -5,9 +5,9 @@ set -eu -o pipefail
 BASEDIR="$(dirname "$(readlink -f "$0")")"
 TMPDIR="$(mktemp -d)"
 URL="https://github.com/thjaeger/easystroke.git"
-if which easystroke &> /dev/null ; then
-	echo "easystroke is already installed"
-	#exit 0
+if which easystroke &>/dev/null; then
+  echo "easystroke is already installed"
+  #exit 0
 fi
 sudo apt-get update
 
@@ -16,16 +16,15 @@ git clone "$URL" "$TMPDIR"
 cp "$BASEDIR/../files/lambda.patch" "$TMPDIR"
 cp "$BASEDIR/../files/abs.patch" "$TMPDIR"
 cd "$TMPDIR"
-patch < lambda.patch
-patch < abs.patch
+patch <lambda.patch
+patch <abs.patch
 make -j4
 sudo make install
 cd "$BASEDIR"
 rm -rf "$TMPDIR"
 
-if [ -d "$HOME/dotfiles/.easystroke" ] ; then
-	cp -vr "$HOME/dotfiles/.easystroke" "$HOME/"
+if [ -d "$HOME/dotfiles/.easystroke" ]; then
+  cp -vr "$HOME/dotfiles/.easystroke" "$HOME/"
 else
-	echo "dotfiles missing" 1>&2
+  echo "dotfiles missing" 1>&2
 fi
-

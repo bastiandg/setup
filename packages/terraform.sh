@@ -8,15 +8,15 @@ set +o pipefail
 VERSION="$(echo "$RELEASE_PAGE" | grep -v 'rc\|beta\|alpha' | grep -m 1 'href="/terraform' | sed -re 's#.*terraform_([0-9.]*)</a>#\1#')"
 set -o pipefail
 
-versioncheck () {
-	set +eu
-	localversion="$(terraform --version 2> /dev/null | grep -oP '(?<=Terraform v).*(?=$)')"
-	set -eu
-	remoteversion="$VERSION"
-	if [ "$localversion" = "$remoteversion" ] ; then
-		echo "terraform is up to date ($localversion)"
-		exit 0
-	fi
+versioncheck() {
+  set +eu
+  localversion="$(terraform --version 2>/dev/null | grep -oP '(?<=Terraform v).*(?=$)')"
+  set -eu
+  remoteversion="$VERSION"
+  if [ "$localversion" = "$remoteversion" ]; then
+    echo "terraform is up to date ($localversion)"
+    exit 0
+  fi
 }
 
 versioncheck

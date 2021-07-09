@@ -5,5 +5,4 @@ BASEDIR="$(dirname "$(readlink -f "$0")")"
 PACKAGELIST="$BASEDIR/../files/package.list"
 
 sudo apt-get update
-$INSTALL $(grep -v "^#" "$PACKAGELIST" | sed -e "s/\(.*\)#.*/\1/g" | tr "\\n" " ")
-
+$INSTALL $(grep -v "^#" "$PACKAGELIST" | sed -e "s/\(.*\)#.*/\1/g" | tr '\n' " ")

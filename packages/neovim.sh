@@ -14,7 +14,7 @@ versioncheck() {
   localversion="$(nvim --version 2>/dev/null | grep -oP '(?<=NVIM ).*(?=$)' || true)"
   set -e
   remoteversion="$(jq -r '.[] | select(.tag_name | test("'"$TAG_NAME"'"))  | .name' <<<"$response" | grep -oP '(?<=NVIM ).*(?=$)' || true)"
-  if [[ "$localversion" == "v$remoteversion" ||  "$localversion" == "$remoteversion" ]]; then
+  if [[ $localversion == "v$remoteversion" || $localversion == "$remoteversion" ]]; then
     echo "neovim is up to date (version $localversion)"
     exit 0
   else
@@ -29,7 +29,7 @@ versioncheck
 onexit() {
   cd "$BASEDIR"
   echo "Script is terminating -- cleaning up"
-  if [[ -d "${TMPDIR:-}" ]]; then
+  if [[ -d ${TMPDIR:-} ]]; then
     sudo rm -rf "$TMPDIR"
   fi
   exit

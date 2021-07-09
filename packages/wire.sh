@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 APT_WIRE_FILE="/etc/apt/sources.list.d/wire-desktop.list"
-versioncheck () {
-	if [ -f "$APT_WIRE_FILE" ] ; then
-		echo "Wire apt repo is already configured, unattended upgrades should take care of updates."
-		exit 0
-	fi
+versioncheck() {
+  if [ -f "$APT_WIRE_FILE" ]; then
+    echo "Wire apt repo is already configured, unattended upgrades should take care of updates."
+    exit 0
+  fi
 }
 
 versioncheck

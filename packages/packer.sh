@@ -6,15 +6,15 @@ RELEASE_URL="https://releases.hashicorp.com/packer/"
 RELEASE_PAGE="$(curl -s "$RELEASE_URL")"
 VERSION="$(echo "$RELEASE_PAGE" | grep -v 'rc\|beta\|alpha' | grep -m 1 'href="/packer' | sed -re 's#.*packer_([0-9.]*)</a>#\1#')"
 
-versioncheck () {
-	set +eu
-	localversion="$(packer --version 2> /dev/null)"
-	set -eu
-	remoteversion="$VERSION"
-	if [ "$localversion" = "$remoteversion" ] ; then
-		echo "packer is up to date ($localversion)"
-		exit 0
-	fi
+versioncheck() {
+  set +eu
+  localversion="$(packer --version 2>/dev/null)"
+  set -eu
+  remoteversion="$VERSION"
+  if [ "$localversion" = "$remoteversion" ]; then
+    echo "packer is up to date ($localversion)"
+    exit 0
+  fi
 }
 
 versioncheck

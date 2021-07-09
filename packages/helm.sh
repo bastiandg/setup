@@ -11,7 +11,7 @@ DOWNLOAD_URL="https://get.helm.sh/helm-${VERSION}-linux-amd64.tar.gz"
 versioncheck() {
   localversion="$(helm version --short 2>/dev/null | sed -re "s/(.*)\+.*/\1/g" || true)"
   remoteversion="$(jq -r ".tag_name" <<<"$RESPONSE")"
-  if [[ "$localversion" == "$remoteversion" ]]; then
+  if [[ $localversion == "$remoteversion" ]]; then
     echo "helm is up to date ($localversion)"
     exit 0
   else

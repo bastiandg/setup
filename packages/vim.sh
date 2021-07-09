@@ -7,9 +7,9 @@ GITURL="https://github.com/vim/vim"
 # setup exit handler
 #################################################################################
 onexit() {
-	echo "Script is terminating -- cleaning up"
-	rm -rf "$GITDIR"
-	exit
+  echo "Script is terminating -- cleaning up"
+  rm -rf "$GITDIR"
+  exit
 }
 
 trap onexit EXIT

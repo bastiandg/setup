@@ -6,7 +6,7 @@ cd "$BASEDIR"
 
 rm -rf "$HOME/.kde/share/apps/RecentDocuments/"*
 rm -f "$HOME/.local/share/recently-used.xbel"
-echo "" > "$HOME/.local/share/recently-used.xbel"
+echo "" >"$HOME/.local/share/recently-used.xbel"
 rm -rf "$HOME/.local/share/kactivitymanagerd/resources/"*
 
 cp -f "../files/gwenviewrc" "$HOME/.config/"
