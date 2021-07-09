@@ -5,8 +5,7 @@ set -eu -o pipefail
 INSTALL_PATH="/opt/nvim"
 BASEDIR="$(dirname "$(readlink -f "$0")")"
 RELEASE_URL="https://api.github.com/repos/neovim/neovim/releases"
-TAG_NAME="nightly" # TODO switch back to stable when nvim 0.5 is released
-#TAG_NAME="stable"
+TAG_NAME="stable"
 response="$(curl -s "$RELEASE_URL")"
 download_url="$(jq -r '.[] | select(.tag_name | test("'"$TAG_NAME"'")) | .assets[] | select(.name | endswith("linux64.tar.gz")) | .browser_download_url' <<<"$response")"
 
@@ -44,6 +43,7 @@ tmpdir="$(mktemp -d)"
 cd "$tmpdir"
 curl -L -o neovim.tgz "$download_url"
 tar zxf neovim.tgz
-sudo rm -r "$INSTALL_PATH"
+sudo rm -r "$INSTALL_PATH" || true
+#sudo mkdir -p "$INSTALL_PATH"
 sudo mv nvim-linux64 "$INSTALL_PATH"
 sudo ln -sf /opt/nvim/bin/nvim /usr/local/bin/nvim
