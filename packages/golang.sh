@@ -7,9 +7,9 @@ version="$(curl "https://golang.org/dl/" 2>/dev/null | grep -oP '(?<=<a class="d
 download_url="https://golang.org/dl/go${version}.linux-amd64.tar.gz"
 
 versioncheck() {
-  localversion="$(go version | sed -re 's#go version go(.*) .*#\1#g')"
+  localversion="$(go version 2>/dev/null | sed -re 's#go version go(.*) .*#\1#g' || true)"
   remoteversion="$version"
-  if [[ "$localversion" = "$remoteversion" ]]; then
+  if [[ $localversion == "$remoteversion" ]]; then
     echo "Go is up to date ($version)"
     exit 0
   fi
