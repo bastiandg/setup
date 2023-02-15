@@ -2,7 +2,7 @@
 set -eu -o pipefail
 
 INSTALLPATH="/usr/local/bin/"
-URL="$(curl "https://api.github.com/repos/hadolint/hadolint/releases/latest" 2>/dev/null | jq -r '.assets[] | select(.browser_download_url | contains ("Linux-x86_64")) | .browser_download_url')"
+URL="$(curl "https://api.github.com/repos/hadolint/hadolint/releases/latest" 2>/dev/null | jq -r '.assets[] | select(.browser_download_url | endswith("Linux-x86_64")) | .browser_download_url')"
 
 versioncheck() {
   localversion="$( (hadolint --version | sed -r 's#Haskell Dockerfile Linter (v[0-9]+\.[0-9]+\.[0-9]*)-.*#\1#g') || true)"
