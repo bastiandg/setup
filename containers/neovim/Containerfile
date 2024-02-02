@@ -1,0 +1,56 @@
+FROM debian:bookworm-slim
+
+ARG NVIM_VERSION="0.9.5"
+ARG INSTALL_PATH="/opt/nvim"
+ARG UNAME="bastian"
+ARG UID="100"
+ARG GID="100"
+ARG SHELL="bash"
+ARG DOTFILES_URL="https://github.com/bastiandg/dotfiles.git"
+ENV NVIM_DATA_DIR="/var/data/${UNAME}"
+ENV DOWNLOAD_URL="https://github.com/neovim/neovim/releases/download/v${NVIM_VERSION}/nvim-linux64.tar.gz"
+
+RUN apt-get update && \
+    apt-get install --no-install-recommends -y \
+        bat \
+        build-essential \
+        ca-certificates \
+        curl \
+        git \
+        npm \
+        python3 \
+        python3-pip \
+        pipx \
+        sudo \
+        xclip \
+        && \
+    rm -rf /var/lib/apt/lists/*
+RUN cd /tmp && \
+    curl -L -o neovim.tgz "$DOWNLOAD_URL" && \
+    tar zxf neovim.tgz && \
+    mv nvim-linux64 "$INSTALL_PATH" && \
+    ln -sf "${INSTALL_PATH}/bin/nvim" /usr/local/bin/nvim && \
+    echo -e "" && \
+    rm /tmp/neovim.tgz
+RUN useradd -m -s "/bin/$SHELL" "$UNAME" && \
+    mkdir -p "${NVIM_DATA_DIR}/" && \
+    cd "${NVIM_DATA_DIR}" && \
+    mkdir data config state cache && \
+    chown -R "${UNAME}:" "$NVIM_DATA_DIR" && \
+    echo "${UNAME} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+RUN echo "cachebust1"
+COPY nvim.sh  /usr/bin/vim
+USER "$UNAME"
+WORKDIR "/home/${UNAME}"
+
+
+RUN git clone  --filter=blob:none --no-checkout --depth 1 --sparse "$DOTFILES_URL" && \ 
+    cd dotfiles/ && \
+    git sparse-checkout set --no-cone nvim && \
+    git checkout && \
+    mv nvim "${NVIM_DATA_DIR}/config/nvim"
+RUN vim +q +qall && \
+    vim --headless -c "MasonInstall dockerfile-language-server python-lsp-server lua-language-server" -c qall
+
+
+CMD ["tail", "-f", "/dev/null"]
